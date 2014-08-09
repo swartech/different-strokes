@@ -16,9 +16,17 @@
 
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <string>
 
 // Here is a small helper for you ! Have a look.
 #include "ResourcePath.hpp"
+
+#ifndef __APPLE__
+string resourcePath() {
+    return "";
+}
+#endif
+
 
 int main(int, char const**)
 {
