@@ -1,17 +1,11 @@
 #include "AnimatedGameObject.h"
 #include <SFML/Graphics.hpp>
 
-class AnimatedGameObject {
 
-sf::Texture spriteSheet;
-int frameCount;
-int currentFrame;
-
-
-AnimatedGameObject::AnimatedGameObject(sf::Texture spritesheet, int width, int height, int currentframe, sf::Vector2f position, sf::Vector2f velocity, bool collidable):GameObject(width,height,position,velocity,collidable)
+AnimatedGameObject::AnimatedGameObject(sf::Texture spritesheet, sf::Sprite sprite, int width, int height, int currentframe, sf::Vector2f position, sf::Vector2f velocity, bool alive, bool collidable):GameObject(spritesheet, sprite, position, velocity, width, height, alive, collidable)
 {
  
- spriteSheet = spritesheet;
+ spritesheet = spritesheet;
  currentFrame = currentframe;
 }
 
@@ -20,6 +14,4 @@ AnimatedGameObject::AnimatedGameObject(sf::Texture spritesheet, int width, int h
 
 AnimatedGameObject::~AnimatedGameObject(void)
 {
-}
-
 }
