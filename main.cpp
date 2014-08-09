@@ -18,6 +18,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <iostream> 
+#include "Player.h"
 
 
 // Here is a small helper for you ! Have a look.
@@ -48,7 +49,7 @@ if (!icon.loadFromFile(resourcePath() + "icon.png")) {
     // Load a sprite to display
     sf::Texture texture;
 
-    if (!texture.loadFromFile(resourcePath() + "cute_image.jpg")) {
+    if (!texture.loadFromFile(resourcePath() + "water.png")) {
         return EXIT_FAILURE;
     }
     sf::Sprite sprite(texture);
@@ -69,7 +70,15 @@ if (!icon.loadFromFile(resourcePath() + "icon.png")) {
 
     // Play the music
     music.play();
+    sf::Texture playerTexture;
+    
+    if (!playerTexture.loadFromFile(resourcePath() + "kayak.png")) {
+        return EXIT_FAILURE;
+    }
+    sf::Sprite playerSprite(playerTexture);
 
+    Player p1 = Player(playerTexture, playerSprite, 32, 100, 0, sf::Vector2f(200, 200), sf::Vector2f(40, 80), true, true);
+    
     // Start the game loop
     while (window.isOpen())
     {
@@ -93,6 +102,7 @@ if (!icon.loadFromFile(resourcePath() + "icon.png")) {
 
         // Draw the sprite
         window.draw(sprite);
+        window.draw(p1.getSprite());
 
         // Draw the string
         window.draw(text);

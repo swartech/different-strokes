@@ -32,13 +32,13 @@ public:
     sf::FloatRect getBoundingBox();
     
 protected:
-private:
     sf::Sprite sprite;
-    sf::Texture texture;
+    sf::Texture spritesheet;
     sf::Vector2f position, velocity;
     bool alive, collidable;
     int width, height;
     sf::FloatRect boundingBox;
+private:
 };
 
 #endif /* defined(__different_strokes__GameObject__) */
