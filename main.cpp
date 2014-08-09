@@ -17,13 +17,15 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <iostream> 
+
 
 // Here is a small helper for you ! Have a look.
 #include "ResourcePath.hpp"
 
 #ifndef __APPLE__
-string resourcePath() {
-    return "";
+std::string resourcePath() {
+    return "../";
 }
 #endif
 
@@ -31,17 +33,21 @@ string resourcePath() {
 int main(int, char const**)
 {
     // Create the main window
+
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
 
     // Set the Icon
     sf::Image icon;
-    if (!icon.loadFromFile(resourcePath() + "icon.png")) {
+
+   
+if (!icon.loadFromFile(resourcePath() + "icon.png")) {
         return EXIT_FAILURE;
     }
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 
     // Load a sprite to display
     sf::Texture texture;
+
     if (!texture.loadFromFile(resourcePath() + "cute_image.jpg")) {
         return EXIT_FAILURE;
     }
@@ -50,7 +56,7 @@ int main(int, char const**)
     // Create a graphical text to display
     sf::Font font;
     if (!font.loadFromFile(resourcePath() + "sansation.ttf")) {
-        return EXIT_FAILURE;
+		return EXIT_FAILURE;
     }
     sf::Text text("Hello SFML", font, 50);
     text.setColor(sf::Color::Black);
